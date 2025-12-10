@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.food_app.R
 import com.example.food_app.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -85,12 +84,10 @@ class LoginFragment : Fragment() {
     }
 
     private fun loginUser(email: String, password: String) {
-        binding.progressBar.visibility = View.VISIBLE
         binding.btnLogin.isEnabled = false
 
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
-                binding.progressBar.visibility = View.GONE
                 binding.btnLogin.isEnabled = true
 
                 if (task.isSuccessful) {
