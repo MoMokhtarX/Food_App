@@ -40,6 +40,7 @@ android {
     // Enable view binding so Fragment...Binding classes are generated
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -52,11 +53,13 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    
+    // Firebase
     implementation(platform("com.google.firebase:firebase-bom:34.6.0"))
     implementation("com.google.firebase:firebase-analytics")
-
-    // Firebase Auth (uses explicit version to ensure resolution in this environment)
     implementation("com.google.firebase:firebase-auth-ktx:22.0.0")
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-storage-ktx")
 
     // AndroidX Navigation (fragment & UI KTX)
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.2")
