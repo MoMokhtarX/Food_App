@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -35,6 +36,11 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+    // Enable view binding so Fragment...Binding classes are generated
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -46,4 +52,13 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(platform("com.google.firebase:firebase-bom:34.6.0"))
+    implementation("com.google.firebase:firebase-analytics")
+
+    // Firebase Auth (uses explicit version to ensure resolution in this environment)
+    implementation("com.google.firebase:firebase-auth-ktx:22.0.0")
+
+    // AndroidX Navigation (fragment & UI KTX)
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.2")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.2")
 }
