@@ -17,6 +17,17 @@
     </fragment>
 
     <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.food_app.HomeFragment"
+        android:label="Home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+
+    </fragment>
+
+    <fragment
         android:id="@+id/signUpFragment"
         android:name="com.example.food_app.SignUpFragment"
         android:label="Sign Up">
@@ -29,8 +40,8 @@
     </fragment>
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.food_app.HomeFragment"
-        android:label="Home" />
+        android:id="@+id/settingsFragment"
+        android:name="com.example.food_app.SettingsFragment"
+        android:label="Settings" />
 
 </navigation>
