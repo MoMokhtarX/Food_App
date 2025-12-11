@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services")
     id("kotlin-kapt")
-    id("kotlin-parcelize")
 }
 
 android {
@@ -56,7 +55,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(platform("com.google.firebase:firebase-bom:34.6.0"))
-    implementation("com.google.firebase:firebase-analytics")
 
     // Firebase Auth (uses explicit version to ensure resolution in this environment)
     implementation("com.google.firebase:firebase-auth-ktx:22.0.0")
