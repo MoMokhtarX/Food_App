@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.gms.google-services")
+    id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -61,4 +63,14 @@ dependencies {
     // AndroidX Navigation (fragment & UI KTX)
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.2")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.2")
+
+    //food
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    kapt ("com.github.bumptech.glide:compiler:4.16.0")
+
+    implementation("com.airbnb.android:lottie:6.3.0")
+
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
 }

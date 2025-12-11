@@ -6,28 +6,34 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
-import android.widget.Button
-import android.widget.TextView
+import androidx.navigation.fragment.findNavController
+import com.example.food_app.databinding.FragmentSettingsBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class SettingsFragment : Fragment() {
+
+    private var _binding: FragmentSettingsBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_settings, container, false)
+    ): View {
+        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        val usernameText = view.findViewById<TextView>(R.id.username_text)
-        val themeButton = view.findViewById<Button>(R.id.theme_button)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        val user = FirebaseAuth.getInstance().currentUser
-        usernameText.text = "Logged in as: ${user?.email ?: "Unknown"}"
+        auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+        binding.usernameText.text = "Logged in as: ${user?.email ?: "Unknown"}"
 
-        themeButton.setOnClickListener {
+        binding.themeButton.setOnClickListener {
             val current = AppCompatDelegate.getDefaultNightMode()
-
             if (current == AppCompatDelegate.MODE_NIGHT_YES) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             } else {
@@ -35,6 +41,14 @@ class SettingsFragment : Fragment() {
             }
         }
 
-        return view
+        binding.logoutButton.setOnClickListener {
+            auth.signOut()
+            findNavController().navigate(R.id.action_settingsFragment_to_signUpFragment)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/card_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Food Image -->
+        <ImageView
+            android:id="@+id/ivFoodImage"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/food_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/placeholder_food" />
+
+        <!-- Favorite Icon -->
+        <ImageView
+            android:id="@+id/ivFavorite"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="8dp"
+            android:padding="6dp"
+            android:background="@drawable/bg_icon_circle"
+            android:src="@drawable/ic_favorite_border"
+            android:contentDescription="@string/add_to_favorites"
+            app:tint="@color/error"
+            app:layout_constraintEnd_toEndOf="@id/ivFoodImage"
+            app:layout_constraintTop_toTopOf="@id/ivFoodImage" />
+
+        <!-- Rating Badge -->
+        <LinearLayout
+            android:id="@+id/llRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_rating"
+            android:orientation="horizontal"
+            android:padding="6dp"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="@id/ivFoodImage"
+            app:layout_constraintBottom_toBottomOf="@id/ivFoodImage">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_star"
+                android:contentDescription="@string/rating"
+                app:tint="@color/warning" />
+
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="4.5" />
+
+        </LinearLayout>
+
+        <!-- Food Name -->
+        <TextView
+            android:id="@+id/tvFoodName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivFoodImage"
+            tools:text="Margherita Pizza" />
+
+        <!-- Food Description -->
+        <TextView
+            android:id="@+id/tvFoodDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="12dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFoodName"
+            tools:text="Classic pizza with tomato sauce and mozzarella" />
+
+        <!-- Price and Cart Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/tvFoodDescription"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!-- Price -->
+            <TextView
+                android:id="@+id/tvFoodPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="$12.99" />
+
+            <!-- Cart Button -->
+            <ImageView
+                android:id="@+id/ivCart"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:padding="8dp"
+                android:background="@drawable/bg_cart_button"
+                android:src="@drawable/ic_cart_border"
+                android:contentDescription="@string/add_to_cart"
+                app:tint="@color/white" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
