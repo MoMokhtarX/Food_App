@@ -12,15 +12,17 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        >
 
         <!-- Food Image -->
         <ImageView
             android:id="@+id/ivFoodImage"
             android:layout_width="match_parent"
             android:layout_height="140dp"
-            android:scaleType="centerCrop"
             android:contentDescription="@string/food_image"
+            android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/placeholder_food" />
 
@@ -30,13 +32,13 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="8dp"
-            android:padding="6dp"
             android:background="@drawable/bg_icon_circle"
-            android:src="@drawable/ic_favorite_border"
             android:contentDescription="@string/add_to_favorites"
-            app:tint="@color/error"
+            android:padding="6dp"
+            android:src="@drawable/ic_favorite_border"
             app:layout_constraintEnd_toEndOf="@id/ivFoodImage"
-            app:layout_constraintTop_toTopOf="@id/ivFoodImage" />
+            app:layout_constraintTop_toTopOf="@id/ivFoodImage"
+            app:tint="@color/error" />
 
         <!-- Food Name -->
         <TextView
@@ -46,11 +48,11 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="12dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textColor="@color/text_primary"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:maxLines="1"
-            android:ellipsize="end"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivFoodImage"
@@ -64,10 +66,10 @@
             android:layout_marginStart="12dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="12dp"
+            android:ellipsize="end"
+            android:maxLines="2"
             android:textColor="@color/text_secondary"
             android:textSize="12sp"
-            android:maxLines="2"
-            android:ellipsize="end"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvFoodName"
