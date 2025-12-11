@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.food_app.databinding.FragmentSettingsBinding
@@ -37,7 +38,7 @@ class SettingsFragment : Fragment() {
 
         auth = FirebaseAuth.getInstance()
         val user = auth.currentUser
-        binding.usernameText.text = "${user?.email ?: "Unknown"}"
+        binding.usernameText.text = user?.email ?: getString(R.string.unknown_user)
 
         updateThemeButtonText()
 
@@ -45,18 +46,18 @@ class SettingsFragment : Fragment() {
         binding.cardTheme.setOnClickListener {
             val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
             val sharedPreferences = requireContext().getSharedPreferences("food_app_prefs", Context.MODE_PRIVATE)
-            val editor = sharedPreferences.edit()
-
-            if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
-                // Switch to Light
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                editor.putBoolean("dark_mode", false)
-            } else {
-                // Switch to Dark
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                editor.putBoolean("dark_mode", true)
+            
+            sharedPreferences.edit {
+                if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
+                    // Switch to Light
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    putBoolean("dark_mode", false)
+                } else {
+                    // Switch to Dark
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    putBoolean("dark_mode", true)
+                }
             }
-            editor.apply()
         }
 
         // Updated ID from logoutButton to cardLogout
@@ -70,9 +71,9 @@ class SettingsFragment : Fragment() {
         val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
         // Updated text view ID from themeButton to tvThemeAction
         if (currentNightMode == Configuration.UI_MODE_NIGHT_YES) {
-            binding.tvThemeAction.text = "Switch to Light Mode"
+            binding.tvThemeAction.text = getString(R.string.switch_to_light_mode)
         } else {
-            binding.tvThemeAction.text = "Switch to Dark Mode"
+            binding.tvThemeAction.text = getString(R.string.switch_to_dark_mode)
         }
     }
 

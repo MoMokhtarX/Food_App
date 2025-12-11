@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App Name -->
-    <string name="app_name">Food App</string>
+    <string name="app_name">DineDash</string>
     <string name="app_logo">App Logo</string>
 
     <!-- Login Screen -->
@@ -16,7 +16,7 @@
 
     <!-- Sign Up Screen -->
     <string name="create_account">Create Account</string>
-    <string name="signup_subtitle">Join us today!</string>
+    <string name="signup_subtitle">Eat what makes you happy</string>
     <string name="username">Username</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="already_have_account">Already have an account?</string>
@@ -50,6 +50,9 @@
     <string name="favorites">Favorites</string>
     <string name="no_favorites">No favorites yet</string>
     <string name="remove_from_favorites">Remove from Favorites</string>
+    <string name="my_favorites">My Favorites</string>
+    <string name="no_favorites_placeholder">No favorites</string>
+    <string name="no_favorites_description">Items you like will appear here</string>
 
     <!-- Cart Screen -->
     <string name="cart">Cart</string>
@@ -67,6 +70,17 @@
     <string name="arabic">Arabic</string>
     <string name="logout">Logout</string>
     <string name="profile">Profile</string>
+    <string name="back">Back</string>
+    <string name="account">Account</string>
+    <string name="preferences">Preferences</string>
+    <string name="app_theme">App Theme</string>
+    <string name="session">Session</string>
+    <string name="theme_icon">Theme icon</string>
+    <string name="session_icon">Session icon</string>
+    <string name="arrow_icon">Arrow icon</string>
+    <string name="unknown_user">Unknown</string>
+    <string name="switch_to_light_mode">Switch to Light Mode</string>
+    <string name="switch_to_dark_mode">Switch to Dark Mode</string>
 
     <!-- General -->
     <string name="save">Save</string>
@@ -89,6 +103,5 @@
     <string name="removed_from_favorites">Removed from favorites</string>
     <string name="added_to_cart">Added to cart</string>
     <string name="already_in_cart">Already in cart</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

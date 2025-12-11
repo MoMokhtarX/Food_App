@@ -24,11 +24,11 @@
 
             <ImageButton
                 android:id="@+id/btnBack"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_arrow_back"
-                android:contentDescription="Back"
+                android:contentDescription="@string/back"
                 app:tint="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="My Favorites"
+                android:text="@string/my_favorites"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -68,7 +68,7 @@
         android:orientation="vertical"
         android:gravity="center"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="@id/rvFavorites"
+        app:layout_constraintTop_toBottomOf="@id/cardTopBar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -79,13 +79,13 @@
             android:src="@drawable/ic_favorite_border"
             android:alpha="0.3"
             app:tint="@color/text_secondary"
-            android:contentDescription="No favorites" />
+            android:contentDescription="@string/no_favorites_placeholder" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="No favorites yet"
+            android:text="@string/no_favorites"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/text_secondary" />
@@ -94,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Items you like will appear here"
+            android:text="@string/no_favorites_description"
             android:textSize="14sp"
             android:textColor="@color/text_secondary" />
 

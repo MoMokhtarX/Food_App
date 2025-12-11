@@ -18,9 +18,6 @@ class CategoryAdapter(
         val tvFoodName: TextView = itemView.findViewById(R.id.tvFoodName)
         val tvFoodDescription: TextView = itemView.findViewById(R.id.tvFoodDescription)
         val ivFavorite: ImageView = itemView.findViewById(R.id.ivFavorite)
-        val tvFoodPrice: TextView = itemView.findViewById(R.id.tvFoodPrice)
-        val llRating: View = itemView.findViewById(R.id.llRating)
-        val ivCart: ImageView = itemView.findViewById(R.id.ivCart)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
@@ -32,11 +29,6 @@ class CategoryAdapter(
         val category = categories[position]
         holder.tvFoodName.text = category.strCategory
         holder.tvFoodDescription.text = category.strCategoryDescription
-
-        // Hide unused elements
-        holder.tvFoodPrice.visibility = View.GONE
-        holder.llRating.visibility = View.GONE
-        holder.ivCart.visibility = View.GONE
 
         // Handle Favorite Icon
         holder.ivFavorite.visibility = View.VISIBLE
