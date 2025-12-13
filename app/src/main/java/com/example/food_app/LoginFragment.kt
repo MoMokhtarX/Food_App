@@ -73,11 +73,6 @@ class LoginFragment : Fragment() {
             return false
         }
 
-        if (password.length < 6) {
-            binding.tilPassword.error = getString(R.string.password_too_short)
-            return false
-        }
-
         binding.tilEmail.error = null
         binding.tilPassword.error = null
         return true
